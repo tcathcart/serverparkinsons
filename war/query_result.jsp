@@ -21,8 +21,7 @@
 				</tr>
 	
 				<%
-					ArrayList<ExerciseItem> entryList = (ArrayList<ExerciseItem>) request
-							.getAttribute("entryList");
+					ArrayList<ExerciseItem> entryList = (ArrayList<ExerciseItem>) request.getAttribute("entryList");
 					for (ExerciseItem entry : entryList) {
 						String s = Long.toString(entry.exerciseTime);
 						String r = (entry.speechCorrectCount+"/"+entry.speechDoneCount);
