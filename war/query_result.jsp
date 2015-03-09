@@ -1,4 +1,4 @@
-<%@page import="tdc.myruns.server.db.ExerciseEntry"%>
+<%@page import="edu.dartmouth.cs.server.db.ExerciseItem"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -9,29 +9,27 @@
 <title>Entries</title>
 </head>
 <body>
-	<b>Exercise Entries</b>
+	<b>Exercise Items</b>
 	<table border="1">
 				<tr>
-					<th>Id:</th>
 					<th>Date:</th>
-					<th>Duration:</th>
-					<th>Climb:</th>
-					<th>Calories:</th>
+					<th>Exercise Time:</th>
+					<th>Speech:</th>
+				
 				</tr>
 	
 				<%
-					ArrayList<ExerciseEntry> entryList = (ArrayList<ExerciseEntry>) request
+					ArrayList<ExerciseItem> entryList = (ArrayList<ExerciseItem>) request
 							.getAttribute("entryList");
-					for (ExerciseEntry entry : entryList) {
+					for (ExerciseItem entry : entryList) {
 				%> 
 				
 				<tr>
-					<td><%=entry.mId%></td>
-					<td><%=entry.mDateString%>
-					<td><%=entry.mDuration%></td>
-					<td><%=entry.mClimb%></td>
-					<td><%=entry.mCalorie%></td>
-					<td><a href="/delete.do?id=<%=entry.mId%>">delete.do</a></td>
+					<td><%=entry.date%></td>
+					<% String s = Long.toString(entry.exerciseTime);%>
+					<td><%=entry.exerciseTime%></td>
+					<%String r = entry.speechCorrectCount+"/"+entry.speechDoneCount; %>
+					<td><%=entry.speechCorrectCount%></td>
 				</tr>
 			
 				<%

@@ -6,7 +6,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
 		<servlet-name>QueryServlet</servlet-name>
-		<servlet-class>tdc.myruns.server.QueryServlet</servlet-class>
+		<servlet-class>edu.dartmouth.cs.server.QueryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>QueryServlet</servlet-name>
@@ -14,23 +14,23 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	<servlet>
 	    <servlet-name>RegisterServlet</servlet-name>
-	    <servlet-class>tdc.myruns.server.RegisterServlet</servlet-class>
+	    <servlet-class>edu.dartmouth.cs.server.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>RegisterServlet</servlet-name>
 	    <url-pattern>/register.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
-	    <servlet-name>DeleteMessageServlet</servlet-name>
-	    <servlet-class>tdc.myruns.server.DeleteMessageServlet</servlet-class>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.SendMessageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>DeleteMessageServlet</servlet-name>
-	    <url-pattern>/delete.do</url-pattern>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <url-pattern>/send.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 	    <servlet-name>PostDataServlet</servlet-name>
-	    <servlet-class>tdc.myruns.server.PostDataServlet</servlet-class>
+	    <servlet-class>edu.dartmouth.cs.server.PostDataServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>PostDataServlet</servlet-name>
