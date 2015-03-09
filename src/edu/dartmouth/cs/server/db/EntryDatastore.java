@@ -15,7 +15,6 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 public class EntryDatastore {
 	private static final DatastoreService mDatastore = DatastoreServiceFactory
 			.getDatastoreService();
-
 	
 	// TODO: make this method take regId parameter
 	private static Key getParentKey() {
@@ -75,7 +74,7 @@ public class EntryDatastore {
 		Query query = new Query(ExerciseItem.ENTITY_KIND_ENTRY);
 		query.setFilter(null);
 		query.setAncestor(getParentKey());
-		query.addSort(ExerciseItem.FIELD_DATE, SortDirection.ASCENDING);
+		query.addSort(ExerciseItem.FIELD_ID, SortDirection.DESCENDING);
 		PreparedQuery pq = mDatastore.prepare(query);
 
 		for (Entity entity : pq.asIterable()) {
