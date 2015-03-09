@@ -28,14 +28,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <servlet-name>SendMessageServlet</servlet-name>
 	    <url-pattern>/send.do</url-pattern>
 	</servlet-mapping>
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>ServerMyParkinsons</servlet-name>
 		<servlet-class>edu.dartmouth.cs.server.ServerMyParkinsonsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ServerMyParkinsons</servlet-name>
 		<url-pattern>/servermyparkinsons</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	<servlet>
 	    <servlet-name>PostDataServlet</servlet-name>
 	    <servlet-class>edu.dartmouth.cs.server.PostDataServlet</servlet-class>
