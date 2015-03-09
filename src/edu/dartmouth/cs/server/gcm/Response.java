@@ -1,4 +1,4 @@
-package tdc.myruns.server.gcm;
+package edu.dartmouth.cs.server.gcm;
 
 public class Response {
 	int mHttpStatus = -1;

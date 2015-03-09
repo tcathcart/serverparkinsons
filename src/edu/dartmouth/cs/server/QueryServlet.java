@@ -1,4 +1,4 @@
-package tdc.myruns.server;
+package edu.dartmouth.cs.server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import tdc.myruns.server.db.EntryDatastore;
-import tdc.myruns.server.db.ExerciseEntry;
+import edu.dartmouth.cs.server.db.EntryDatastore;
+import edu.dartmouth.cs.server.db.ExerciseItem;
 
 public class QueryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +17,7 @@ public class QueryServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
-		ArrayList<ExerciseEntry> entryList = EntryDatastore.query();
+		ArrayList<ExerciseItem> entryList = EntryDatastore.query();
 		
 		req.setAttribute("entryList", entryList);
 		

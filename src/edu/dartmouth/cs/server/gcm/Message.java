@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tdc.myruns.server.gcm;
+package edu.dartmouth.cs.server.gcm;
 
 import java.util.ArrayList;
 import java.util.List;

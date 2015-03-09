@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tdc.myruns.server;
+package edu.dartmouth.cs.server;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import tdc.myruns.server.db.RegDatastore;
+import edu.dartmouth.cs.server.db.RegDatastore;
 
 @SuppressWarnings("serial")
 public class RegisterServlet extends HttpServlet {

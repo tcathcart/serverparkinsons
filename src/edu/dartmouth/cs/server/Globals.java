@@ -1,4 +1,4 @@
-package tdc.myruns.server;
+package edu.dartmouth.cs.server;
 
 public class Globals {
 

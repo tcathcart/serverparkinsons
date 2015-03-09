@@ -1,4 +1,4 @@
-package tdc.myruns.server.db;
+package edu.dartmouth.cs.server.db;
 import java.util.ArrayList;
 
 import com.google.appengine.api.datastore.DatastoreService;
@@ -19,8 +19,8 @@ public class EntryDatastore {
 	
 	// TODO: make this method take regId parameter
 	private static Key getParentKey() {
-		return KeyFactory.createKey(ExerciseEntry.ENTITY_KIND_ENTRY,
-				ExerciseEntry.ENTRY_ENTITY_NAME);
+		return KeyFactory.createKey(ExerciseItem.ENTITY_KIND_ENTRY,
+				ExerciseItem.ENTRY_ENTITY_NAME);
 	}
 
 	private static void createParentEntity() {
@@ -29,7 +29,7 @@ public class EntryDatastore {
 		mDatastore.put(entity);
 	}
 
-	public static boolean add(ExerciseEntry entry, String regId) {
+	public static boolean add(ExerciseItem entry, String regId) {
 		Key parentKey = getParentKey();
 		try {
 			mDatastore.get(parentKey);
@@ -37,25 +37,17 @@ public class EntryDatastore {
 			createParentEntity();
 		}
 
-		Entity entity = new Entity(ExerciseEntry.ENTITY_KIND_ENTRY,
-				entry.mId, parentKey);
-		entity.setProperty(ExerciseEntry.FIELD_ID, entry.mId);
-		entity.setProperty(ExerciseEntry.FIELD_ACT_TYPE, entry.mActivityType);
-		entity.setProperty(ExerciseEntry.FIELD_CAL, entry.mCalorie);
-		entity.setProperty(ExerciseEntry.FIELD_CLIMB, entry.mClimb);
-		entity.setProperty(ExerciseEntry.FIELD_COM, entry.mComment);
-		entity.setProperty(ExerciseEntry.FIELD_DIST, entry.mDistance);
-		entity.setProperty(ExerciseEntry.FIELD_DUR, entry.mDuration);
-		entity.setProperty(ExerciseEntry.FIELD_HR, entry.mHeartRate);
-		entity.setProperty(ExerciseEntry.FIELD_IN_TYPE, entry.mInputType);
-//		entity.setProperty(ExerciseEntry.FIELD_LOC_LIST, entry.mLocationList);
-		entity.setProperty(ExerciseEntry.FIELD_PACE, entry.mAvgPace);
-		entity.setProperty(ExerciseEntry.FIELD_SPEED, entry.mAvgSpeed);
-		entity.setProperty(ExerciseEntry.FIELD_TIME, entry.mDateTime);
-		entity.setProperty(ExerciseEntry.FIELD_TIMESTRING, entry.mDateString);
-
+		Entity entity = new Entity(ExerciseItem.ENTITY_KIND_ENTRY,
+				entry.id, parentKey);
+		entity.setProperty(ExerciseItem.FIELD_ID, entry.id);
+		entity.setProperty(ExerciseItem.FIELD_DATE, entry.getDate());
+		entity.setProperty(ExerciseItem.FIELD_MONTH, entry.getMonth());
+		entity.setProperty(ExerciseItem.FIELD_YEAR, entry.getYear());
+		entity.setProperty(ExerciseItem.FIELD_EXERCISE_TIME, entry.exerciseTime);
+		entity.setProperty(ExerciseItem.FIELD_SPEECH_ATTEMPTS, entry.speechDoneCount);
+		entity.setProperty(ExerciseItem.FIELD_SPEECH_CORRECT, entry.speechCorrectCount);
+		
 		mDatastore.put(entity);
-
 		return true;
 	}
 
@@ -66,42 +58,38 @@ public class EntryDatastore {
 		} catch (Exception ex) {
 			createParentEntity();
 		}
-		Key key = KeyFactory.createKey(parentKey, ExerciseEntry.ENTITY_KIND_ENTRY, id);
+		Key key = KeyFactory.createKey(parentKey, ExerciseItem.ENTITY_KIND_ENTRY, id);
 		mDatastore.delete(key);
 	}
 	
 	public static void removeAllEntries() {
-		ArrayList<ExerciseEntry> entryList = query();
-		for (ExerciseEntry entry : entryList) {
-			remove(entry.mId);
+		ArrayList<ExerciseItem> entryList = query();
+		for (ExerciseItem entry : entryList) {
+			remove(entry.id);
 		}
 	}
 	
-	public static ArrayList<ExerciseEntry> query() {
-		ArrayList<ExerciseEntry> resultList = new ArrayList<ExerciseEntry>();
+	public static ArrayList<ExerciseItem> query() {
+		ArrayList<ExerciseItem> resultList = new ArrayList<ExerciseItem>();
 
-		Query query = new Query(ExerciseEntry.ENTITY_KIND_ENTRY);
+		Query query = new Query(ExerciseItem.ENTITY_KIND_ENTRY);
 		query.setFilter(null);
 		query.setAncestor(getParentKey());
-		query.addSort(ExerciseEntry.FIELD_TIME, SortDirection.ASCENDING);
+		query.addSort(ExerciseItem.FIELD_DATE, SortDirection.ASCENDING);
 		PreparedQuery pq = mDatastore.prepare(query);
 
 		for (Entity entity : pq.asIterable()) {
-			ExerciseEntry entry = new ExerciseEntry();
-			entry.mId = (Long) entity.getProperty(ExerciseEntry.FIELD_ID);
-			entry.mActivityType = ((Long) entity.getProperty(ExerciseEntry.FIELD_ACT_TYPE)).intValue();
-			entry.mCalorie = ((Long) entity.getProperty(ExerciseEntry.FIELD_CAL)).intValue();
-			entry.mClimb = (double) entity.getProperty(ExerciseEntry.FIELD_CLIMB);
-			entry.mComment = (String) entity.getProperty(ExerciseEntry.FIELD_COM);
-			entry.mDistance = (double) entity.getProperty(ExerciseEntry.FIELD_DIST);
-			entry.mDuration = ((Long) entity.getProperty(ExerciseEntry.FIELD_DUR)).intValue();
-			entry.mHeartRate = ((Long) entity.getProperty(ExerciseEntry.FIELD_HR)).intValue();
-			entry.mInputType = ((Long) entity.getProperty(ExerciseEntry.FIELD_IN_TYPE)).intValue();
-//			entry.mLocationList = (ArrayList<Coordinates>) entity.getProperty(ExerciseEntry.FIELD_LOC_LIST);
-			entry.mAvgPace = (double) entity.getProperty(ExerciseEntry.FIELD_PACE);
-			entry.mAvgSpeed = (double) entity.getProperty(ExerciseEntry.FIELD_SPEED);
-			entry.mDateTime = (Long) entity.getProperty(ExerciseEntry.FIELD_TIME);
-			entry.mDateString = (String) entity.getProperty(ExerciseEntry.FIELD_TIMESTRING);
+			ExerciseItem entry = new ExerciseItem();
+			
+			entry.id = (Long) entity.getProperty(ExerciseItem.FIELD_ID);
+			entry.setDate(
+				(int) entity.getProperty(ExerciseItem.FIELD_YEAR),
+				(int) entity.getProperty(ExerciseItem.FIELD_MONTH),
+				(int) entity.getProperty(ExerciseItem.FIELD_DATE)
+			);
+			entry.speechDoneCount = (int) entity.getProperty(ExerciseItem.FIELD_SPEECH_ATTEMPTS);
+			entry.speechCorrectCount = (int) entity.getProperty(ExerciseItem.FIELD_SPEECH_CORRECT);
+			entry.exerciseTime = (int) entity.getProperty(ExerciseItem.FIELD_EXERCISE_TIME);
 			resultList.add(entry);
 		}
 		return resultList;
