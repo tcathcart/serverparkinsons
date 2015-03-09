@@ -1,10 +1,10 @@
-<!-- Indices written at Sun, 8 Mar 2015 22:03:20 EDT -->
+<!-- Indices written at Sun, 8 Mar 2015 23:05:32 EDT -->
 
 <datastore-indexes>
 
     <!-- Used 1 time in query history -->
     <datastore-index kind="ExerciseEntry" ancestor="true" source="auto">
-        <property name="day_of_month" direction="asc"/>
+        <property name="id_col" direction="desc"/>
     </datastore-index>
 
 </datastore-indexes>
