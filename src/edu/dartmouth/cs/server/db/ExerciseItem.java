@@ -19,8 +19,8 @@ public class ExerciseItem {
 
     public long id;
     public Calendar date;
-    public int speechDoneCount;
-    public int speechCorrectCount;
+    public long speechDoneCount;
+    public long speechCorrectCount;
     public long exerciseTime;
     
     public ExerciseItem() {

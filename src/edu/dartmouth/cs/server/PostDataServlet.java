@@ -58,11 +58,11 @@ public class PostDataServlet extends HttpServlet {
 				entry.id = entryJson.getLong(FIELD_ID);
 				entry.setDate(
 					entryJson.getInt(FIELD_YEAR),
-					entryJson.getInt(FIELD_MONTH),
+					entryJson.getInt(FIELD_MONTH) + 1,
 					entryJson.getInt(FIELD_DATE)
 				);
-				entry.speechDoneCount = entryJson.getInt(FIELD_SPEECH_ATTEMPTS);
-				entry.speechCorrectCount = entryJson.getInt(FIELD_SPEECH_CORRECT);
+				entry.speechDoneCount = entryJson.getLong(FIELD_SPEECH_ATTEMPTS);
+				entry.speechCorrectCount = entryJson.getLong(FIELD_SPEECH_CORRECT);
 				entry.exerciseTime = entryJson.getLong(FIELD_EXERCISE_TIME);
 				
 				// add entry
