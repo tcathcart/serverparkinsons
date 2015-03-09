@@ -12,9 +12,9 @@
 	<b>Exercise Items</b>
 	<table border="1">
 				<tr>
-					<th>Date:</th>
-					<th>Exercise Time:</th>
-					<th>Speech:</th>
+					<th>Date</th>
+					<th>Exercise Time</th>
+					<th>Speech</th>
 				
 				</tr>
 	
@@ -22,14 +22,15 @@
 					ArrayList<ExerciseItem> entryList = (ArrayList<ExerciseItem>) request
 							.getAttribute("entryList");
 					for (ExerciseItem entry : entryList) {
+						String s = Long.toString(entry.exerciseTime);
+						String r = (entry.speechCorrectCount+"/"+entry.speechDoneCount);
+
 				%> 
 				
 				<tr>
-					<td><%=entry.date%></td>
-					<% String s = Long.toString(entry.exerciseTime);%>
-					<td><%=entry.exerciseTime%></td>
-					<%String r = entry.speechCorrectCount+"/"+entry.speechDoneCount; %>
-					<td><%=entry.speechCorrectCount%></td>
+					<td><%=entry.date %></td>
+					<td><%=s%></td>
+					<td><%=r%></td>
 				</tr>
 			
 				<%
