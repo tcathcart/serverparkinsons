@@ -1,4 +1,4 @@
-package tdc.myruns.server.db;
+package edu.dartmouth.cs.server.db;
 
 public class Coordinates {
 	public double latitude;

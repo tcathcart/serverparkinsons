@@ -21,12 +21,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/register.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
-	    <servlet-name>DeleteMessageServlet</servlet-name>
-	    <servlet-class>edu.dartmouth.cs.server.DeleteMessageServlet</servlet-class>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.SendMessageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>DeleteMessageServlet</servlet-name>
-	    <url-pattern>/delete.do</url-pattern>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <url-pattern>/send.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 	    <servlet-name>AppendItemServlet</servlet-name>
