@@ -15,7 +15,7 @@
 	Exercise Items
 	<a href=index.html>Back</a>
 	</div>
-	<table align="center" border="1">
+	<table align="center" border="1" class="gridtable">
 				<tr>
 					<th>Date</th>
 					<th>Exercise Time</th>
