@@ -50,7 +50,7 @@ public class SendMessageServlet extends HttpServlet {
 		// Send the message to device, at most retrying MAX_RETRY times
 		sender.send(message, MAX_RETRY);
 		
-		resp.sendRedirect("/query.do");
+		resp.sendRedirect("thanks.html");
 	}
 
 	@Override
