@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="styles.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Entries</title>
 </head>
@@ -25,10 +26,11 @@
 					for (ExerciseItem entry : entryList) {
 						String s = Long.toString(entry.exerciseTime);
 						String r = (entry.speechCorrectCount+"/"+entry.speechDoneCount);
+						String d = entry.getMonth() + "/" + entry.getDate() +"/"+entry.getYear();
 				%> 
 				
 				<tr>
-					<td><%=entry.date %></td>
+					<td><%=d%></td>
 					<td><%=s%></td>
 					<td><%=r%></td>
 				</tr>

@@ -33,7 +33,7 @@ public class ExerciseItem {
     }
     
     public int getDate() {
-    	return date.get(Calendar.DAY_OF_YEAR);
+    	return date.get(Calendar.DAY_OF_MONTH);
     }
     public int getMonth() {
     	return date.get(Calendar.MONTH);

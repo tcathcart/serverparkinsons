@@ -82,13 +82,13 @@ public class EntryDatastore {
 			
 			entry.id = (Long) entity.getProperty(ExerciseItem.FIELD_ID);
 			entry.setDate(
-				(int) entity.getProperty(ExerciseItem.FIELD_YEAR),
-				(int) entity.getProperty(ExerciseItem.FIELD_MONTH),
-				(int) entity.getProperty(ExerciseItem.FIELD_DATE)
+				((Long) entity.getProperty(ExerciseItem.FIELD_YEAR)).intValue(),
+				((Long) entity.getProperty(ExerciseItem.FIELD_MONTH)).intValue(),
+				((Long) entity.getProperty(ExerciseItem.FIELD_DATE)).intValue()
 			);
-			entry.speechDoneCount = (int) entity.getProperty(ExerciseItem.FIELD_SPEECH_ATTEMPTS);
-			entry.speechCorrectCount = (int) entity.getProperty(ExerciseItem.FIELD_SPEECH_CORRECT);
-			entry.exerciseTime = (int) entity.getProperty(ExerciseItem.FIELD_EXERCISE_TIME);
+			entry.speechDoneCount = ((Long) entity.getProperty(ExerciseItem.FIELD_SPEECH_ATTEMPTS)).intValue();
+			entry.speechCorrectCount = ((Long) entity.getProperty(ExerciseItem.FIELD_SPEECH_CORRECT)).intValue();
+			entry.exerciseTime = (Long) entity.getProperty(ExerciseItem.FIELD_EXERCISE_TIME);
 			resultList.add(entry);
 		}
 		return resultList;
