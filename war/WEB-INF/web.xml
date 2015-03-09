@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>QueryServlet</servlet-name>
+		<servlet-class>edu.dartmouth.cs.server.QueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QueryServlet</servlet-name>
+		<url-pattern>/query.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>RegisterServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>RegisterServlet</servlet-name>
+	    <url-pattern>/register.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.SendMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>SendMessageServlet</servlet-name>
+	    <url-pattern>/send.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ServerMyParkinsons</servlet-name>
+		<servlet-class>edu.dartmouth.cs.server.ServerMyParkinsonsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServerMyParkinsons</servlet-name>
+		<url-pattern>/servermyparkinsons</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>PostDataServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.PostDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PostDataServlet</servlet-name>
+	    <url-pattern>/post.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>AppendItemServlet</servlet-name>
+	    <servlet-class>edu.dartmouth.cs.server.AppendItemServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>AppendItemServlet</servlet-name>
+	    <url-pattern>/append.do</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
