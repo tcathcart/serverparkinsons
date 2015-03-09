@@ -11,7 +11,9 @@
 </head>
 <body>
 <br>
-	<b>Exercise Items</b>
+	<div id="tableheader">
+	Exercise Items
+	</div>
 	<table align="center" border="1">
 				<tr>
 					<th>Date</th>
