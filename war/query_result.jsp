@@ -13,6 +13,7 @@
 <br>
 	<div id="tableheader">
 	Exercise Items
+	<a href=index.html>Back</a>
 	</div>
 	<table align="center" border="1">
 				<tr>
