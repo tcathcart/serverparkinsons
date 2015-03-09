@@ -12,7 +12,7 @@
 <body>
 <br>
 	<b>Exercise Items</b>
-	<table border="1">
+	<table align="center" border="1">
 				<tr>
 					<th>Date</th>
 					<th>Exercise Time</th>
