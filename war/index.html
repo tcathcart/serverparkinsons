@@ -21,7 +21,10 @@
       </tr>
       <tr>
         <td><a href="query.do">View Entries</a></td>
-        <td><a href="send.do">Send Reminder</a>
+        <form name="input" action="/send.do" method="post">
+Send a Message: <input type="text" name="msg"> <input type="submit" value="Send">
+<br><br>
+</form>
       </tr>
     </table>
   </body>

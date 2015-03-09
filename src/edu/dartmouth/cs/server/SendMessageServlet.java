@@ -33,17 +33,17 @@ public class SendMessageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		List<String> devices = RegDatastore.getDevices();
-		
+		String msg = req.getParameter("msg");
 //		String id = req.getParameter("id").toString();
 //		long lid = Long.valueOf(id).longValue();
 //		
 //		EntryDatastore.remove(lid);
 //		
-//		logger.info("Just deleted entry " + id);
+		logger.info("sending message " + msg);
 //
 //		logger.info("Sending message to " + devices.size() + " devices");
 		Message message = new Message(devices);
-		message.addData("message", "reminder");
+		message.addData("message", msg);
 ////		message.addData("del_id", id);
 
 		// Have to hard-coding the API key when creating the Sender

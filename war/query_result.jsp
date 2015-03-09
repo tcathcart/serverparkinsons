@@ -9,6 +9,7 @@
 <title>Entries</title>
 </head>
 <body>
+<br>
 	<b>Exercise Items</b>
 	<table border="1">
 				<tr>
