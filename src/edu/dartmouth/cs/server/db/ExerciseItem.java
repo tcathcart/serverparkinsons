@@ -29,7 +29,9 @@ public class ExerciseItem {
     
     public void setDate(int year, int month, int day) {
     	date = Calendar.getInstance();
-    	date.set(year, month, day);
+    	date.set(Calendar.YEAR, year);
+    	date.set(Calendar.MONTH, month);
+    	date.set(Calendar.DAY_OF_MONTH, day);
     }
     
     public int getDate() {

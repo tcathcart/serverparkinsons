@@ -44,7 +44,7 @@ public class SendMessageServlet extends HttpServlet {
 //		logger.info("Sending message to " + devices.size() + " devices");
 		Message message = new Message(devices);
 		message.addData("message", msg);
-////		message.addData("del_id", id);
+		message.addData("from_name", "Dr. Campbell");
 
 		// Have to hard-coding the API key when creating the Sender
 		Sender sender = new Sender(Globals.GCMAPIKEY);
